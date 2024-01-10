@@ -1,0 +1,119 @@
+CLASS z_basic_programs DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS z_basic_programs IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    DATA X TYPE I.
+    DATA Y TYPE I.
+    DATA Z TYPE I.
+
+    X = 10.
+    Y = 15.
+    Z = X + Y.
+
+    OUT->write( Z ).
+
+    DATA FIRSTNAME TYPE STRING.
+    DATA LASTNAME TYPE STRING.
+
+    DATA NAME1 TYPE STRING.
+    DATA NAME2 TYPE STRING.
+
+    FIRSTNAME = 'SHAIK'.
+    LASTNAME = 'SHOEB'.
+
+    NAME1 = FIRSTNAME && LASTNAME.
+    NAME2 = FIRSTNAME && | | && LASTNAME.
+    out->write( NAME1 ).
+    out->write( NAME2 ).
+
+
+    DATA FNAME TYPE STRING VALUE 'MOHAMMAD'.
+    DATA LNAME TYPE STRING VALUE 'IMRAN'.
+    DATA NAME3 TYPE STRING.
+    DATA NAME4 TYPE STRING.
+
+    NAME3 = FNAME && LNAME.
+    NAME4 = FNAME && | | && LNAME.
+
+    out->write( |NAME WITHOUT SPACE ' { NAME3 } ' | ).
+    out->write( |NAME WITH SPACE ' { NAME4 } ' | ).
+
+
+
+    DATA: FULLNAME TYPE STRING VALUE 'SHAIK SHOEB',
+          FIRNAME TYPE STRING,
+          LASNAME TYPE STRING.
+
+    SPLIT FULLNAME AT ' ' INTO FIRNAME LASNAME.
+    OUT->write( |PRINT (USER FIRST NAME ) ' { FIRNAME } ' | ).
+
+
+
+
+
+
+*    CONSTANT
+    DATA N TYPE STRING.
+    CONSTANTS NAM TYPE STRING VALUE 'SHAIK SHOEB'.
+
+    N = NAM.
+    OUT->write( N ).
+
+
+
+*    SYSTEM VARIABLES
+    OUT->write( SY-datum ).
+    OUT->write( SY-uzeit ).
+    OUT->write( SY-uname ).
+
+
+*    COMMENT SINGLE LINE
+*
+*    *DATA X TYPE I.
+
+
+*    COMMENT MULTIPLE LINES
+*
+*    case variable.
+*      when value.
+*
+*    endcase.
+
+
+*    COMMENT LINE AT THE END OF STATEMENT
+*
+*    DATA NAME TYPE STRING. "THIS IS NAME VARIABLE
+
+
+  ENDMETHOD.
+ENDCLASS.
+
+
+*
+*** CODE COMPLETION
+*loop at table assigning fldsym.
+*
+*endloop.
+
+*
+***CODE TEMPLATE
+*case variable.when value.
+*
+*endcase.
+
+
